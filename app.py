@@ -79,9 +79,10 @@ if question:
         st.chat_message("assistant").write(response.text)
 
     except Exception:
-        st.error(
-            "Gemini is temporarily busy. Please try again in a few seconds."
-        )
+    st.error(
+        "Gemini API quota is temporarily exhausted. "
+        "Please try again after the quota resets."
+    )
 
 if st.button("📝 Generate Summary"):
     summary_prompt = """
@@ -108,10 +109,10 @@ Keep the summary concise.
         st.session_state.summary = summary_response.text
 
     except Exception:
-        st.error(
-            "Gemini quota is currently exhausted. "
-            "Please try again after the quota resets."
-        )
+    st.error(
+        "Gemini API quota is temporarily exhausted. "
+        "Please try again after the quota resets."
+    )
 
 if "summary" in st.session_state:
     st.subheader("📝 Study Summary")
