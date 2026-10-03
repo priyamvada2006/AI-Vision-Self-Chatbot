@@ -48,7 +48,7 @@ for i, message in enumerate(st.session_state.chat_history):
     else:
         st.chat_message("assistant").write(message)
 
-if question:
+if question and st.button("🚀 Ask AI"):
     contents = [SYSTEM_PROMPT]
 
     for message in st.session_state.chat_history:
